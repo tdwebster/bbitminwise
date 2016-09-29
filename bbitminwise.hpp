@@ -108,7 +108,7 @@ Row vectorProcess(string line, const int L, const int p, const int b, const stri
 #pragma omp parallel for
     for (int l = 0; l < L; l++) {
         for (int ctr = 0; ctr < j.size(); ctr++) {
-            tempHash = UkHash(j[ctr], B, p, (*A)[l]);
+            tempHash = UkHash(j[ctr], B, p, (A)[l]);
             if (tempHash < minHash) {
                 minHash = tempHash;
             }
