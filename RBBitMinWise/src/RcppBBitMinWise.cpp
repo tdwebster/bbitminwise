@@ -1,18 +1,5 @@
-/***
-* @brief A header providing useful functions for use in bBit Minwise Hash calculations
-*
-* This file is designed to implement the methods, not first, descibed in the following paper https://arxiv.org/pdf/1308.1269v3.pdf
-* It implements method 2.2 for performing bBit Minwise Hashing on sparse binary data sets
-* The code contains the scope to be expanded to follow method 2.3 as well.
-* Created by Thomas Webster under supervision of Dr Rajen Shah and supported by the Bridgewater program.
-
-* @author Thomas Webster
-*
-* @date Published : 28/09/2016
-*
-* Contact tw432@cam.ac.uk
-*
-*/
+// [[Rcpp::plugins(cpp11)]]
+// [[Rcpp::plugins(openmp)]]
 #include <fstream>
 #include <sstream>
 #include <chrono>
@@ -20,6 +7,7 @@
 #include <vector>
 #include <stdlib.h>
 #include <random>
+#include <Rcpp.h>
 
 using namespace std;
 
@@ -105,7 +93,7 @@ int UkHash(int t, int D, int p, Row a) {
  *
  * @return Row vector containing positions of 1s in prediction vector
  */
-
+// [[Rcpp::export]]
 Row vectorProcess(string line, const int L, const int p, const int b, const string permFileName) {
     Row result;
     Matrix A = readPerms(permFileName);
@@ -181,6 +169,7 @@ void lineProcess(string line, string & result, const int L, const int p, const i
  *
  * @return Creates files: hashes, containing the hash functions used; class, containing the class of each row; compress, which is bbit result;
  */
+// [[Rcpp::export]]
 void bBitCompress(const int b, const int L, const int p, const int k, const string inFileName, const string permFileName, const string outFileName) {
     Matrix A = getPerms(L, k, p);
     ofstream permsOut(permFileName);

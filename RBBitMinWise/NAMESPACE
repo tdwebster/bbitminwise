@@ -1,0 +1,3 @@
+useDynLib(RBBitMinWise)
+exportPattern("^[[:alpha:]]+")
+importFrom(Rcpp, evalCpp)

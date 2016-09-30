@@ -1,0 +1,11 @@
+Package: RBBitMinWise
+Type: Package
+Title: Implements b-Bit Min Wise Hashing
+Version: 1.0
+Date: 2016-09-29
+Author: Thomas Webster
+Maintainer: Thomas Webster <tw432@cam.ac.uk>
+Description: This file is designed to implement the methods, not first, descibed in the following paper https://arxiv.org/pdf/1308.1269v3.pdf. It implements method 2.2 for performing bBit Minwise Hashing on sparse binary data sets. Created under supervision of Dr Rajen Shah and supported by the Bridgewater program.
+License: CC-BY
+Imports: Rcpp (>= 0.12.6)
+LinkingTo: Rcpp
